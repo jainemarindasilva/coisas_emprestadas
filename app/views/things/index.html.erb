@@ -1,0 +1,22 @@
+<div class= "row">
+  <h2>Lista de Coisas </h2>
+
+  <table>
+    <thead>
+      <th>Descrição</th>
+      <th>Ações</th>
+    <thead>
+
+    <tbody>
+      <% @things.each do |thing| %>
+        <tr>
+          <td> <%= thing.description%> </td>
+          <td> 
+            <%= button_to "Remover", thing, method: :delete, class: "waves-effect waves-light btn red" %>
+          </td>
+        </tr>  
+      <% end%>
+    </tbody>
+  </table>
+
+</div>
