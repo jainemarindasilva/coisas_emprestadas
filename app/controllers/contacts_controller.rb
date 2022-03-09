@@ -3,20 +3,36 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
   end
 
-  def create
+  def show
+    @contact = Contact.find(params[:id])
+  end  
 
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    Contact.create(contact_params)
   end
 
   def edit
-    id = params[:id]
-    @contact = Contact.find(id)
+    @contact = Contact.find(params[:id])
     #byebug
   end
 
   def update
     @contact = Contact.find(params[:id])
-    @contact.update(params[:contact])
-    byebug
+    @contact.update(contact_params)
   end
 
+  def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    #redirect_to root_path, status: :see_other 
+  end
+
+  private
+    def contact_params
+      params.require(:contact).permit(:name, :email, :phone_number, :address)
+    end
 end
