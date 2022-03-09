@@ -1,0 +1,33 @@
+<div class="row">
+    <%= form_with model:@contact, class:"col s12" do |form| %>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :name %>
+                <%= form.label :name %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :email %>
+                <%= form.label :email %>
+            </div>
+            <div class="input-field col s6">
+                <%= form.text_field :phone_number %>
+                <%= form.label :phone_number %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :address %>
+                <%= form.label :address %>
+            </div>
+        </div>
+        <ul>
+            <li><%= link_to "Edit", edit_contact_path(@contact) %></li>
+            <li><%= link_to "Destroy", contact_path(@contact), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                } %></li>
+        </ul>
+    <% end %>
+</div>

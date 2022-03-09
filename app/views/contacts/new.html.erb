@@ -1,0 +1,27 @@
+<div class="row">
+    <%= form_with model:@contact, class:"col s12" do |form| %>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :name %>
+                <%= form.label :name %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :email %>
+                <%= form.label :email %>
+            </div>
+            <div class="input-field col s6">
+                <%= form.text_field :phone_number %>
+                <%= form.label :phone_number %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= form.text_field :address %>
+                <%= form.label :address %>
+            </div>
+        </div>
+        <%= form.submit %>
+    <% end %>
+</div>
