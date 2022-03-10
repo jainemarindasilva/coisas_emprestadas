@@ -1,6 +1,37 @@
-<h2>Lista de contatos </h2>
+<h2>Contacts</h2>
+<br>
 
-<% @contacts.each do |contact| %>
-    <%= contact.name%>
-    <%= contact.address%>
-<% end%>
+<table class="highlight">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+        <tr>
+            <td><%= contact.name%></td>
+            <td><%= contact.email%></td>
+            <td><%= contact.phone_number%></td>
+            <td><%= contact.address%></td>
+            <td>
+               <%= link_to '🖋', edit_contact_path(contact) %>
+               <%= link_to '🗑', contact_path(contact), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                } %>
+            </td>
+        </tr>
+    <% end%>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add', new_contact_path %>
+
+
+
+
