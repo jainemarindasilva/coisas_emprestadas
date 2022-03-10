@@ -10,7 +10,7 @@
     <tbody>
       <% @things.each do |thing| %>
         <tr>
-          <td> <%= thing.description%> </td>
+          <td> <%= thing.description%></td>
           <td> 
             <%= button_to "Remover", thing, method: :delete, class: "waves-effect waves-light btn red" %>
           </td>
@@ -18,5 +18,6 @@
       <% end%>
     </tbody>
   </table>
-
+  <br/>
+  <%= link_to "Adicionar", new_thing_path %>
 </div>
