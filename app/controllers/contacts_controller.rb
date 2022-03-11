@@ -12,23 +12,29 @@ class ContactsController < ApplicationController
   end
 
   def create
-    Contact.create(contact_params)
+    newContact = Contact.new(contact_params)
+    if newContact.save
+      render :new, js: "alert('Contact inserted!');"
+    else
+      #render json: {errors:  newContact.errors.full_messages}, 
+      render :new, status: :not_acceptable
+    end
   end
 
   def edit
     @contact = Contact.find(params[:id])
-    #byebug
   end
 
   def update
     @contact = Contact.find(params[:id])
     @contact.update(contact_params)
+    redirect_to :index, status: :see_other
   end
 
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    #redirect_to root_path, status: :see_other 
+    redirect_to :index, status: :see_other
   end
 
   private
