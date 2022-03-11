@@ -10,7 +10,7 @@ class ThingsController < ApplicationController
 
   def create
     @thing = Thing.new(thing_params)
-    if (@thing.save)
+    if @thing.save
       redirect_to things_path
     else
       render :new, status: :unprocessable_entity
