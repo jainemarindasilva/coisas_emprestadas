@@ -28,13 +28,13 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     @contact.update(contact_params)
-    redirect_to :index, status: :see_other
+    redirect_to action:"index", status: :see_other
   end
 
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    redirect_to :index, status: :see_other
+    redirect_to action:"index", status: :see_other
   end
 
   private
