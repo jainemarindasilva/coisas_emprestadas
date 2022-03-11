@@ -20,7 +20,6 @@ class ThingsController < ApplicationController
   def destroy
     @thing = Thing.find(params[:id])
     @thing.destroy
-
     redirect_to things_path
   end
 
